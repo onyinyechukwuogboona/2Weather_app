@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Weather Background Animations -->
+    <div class="bg-container sunny">
+        <div class="sun"></div>
+        <div class="cloud cloud-1" style="display: none;"></div>
+        <div class="cloud cloud-2" style="display: none;"></div>
+        <div class="rain rain-1" style="display: none;"></div>
+        <div class="rain rain-2" style="display: none;"></div>
+        <div class="rain rain-3" style="display: none;"></div>
+        <div class="rain rain-4" style="display: none;"></div>
+        <div class="rain rain-5" style="display: none;"></div>
+        <div class="lightning" style="display: none;"></div>
+        <div class="snowflake snowflake-1" style="display: none;"></div>
+        <div class="snowflake snowflake-2" style="display: none;"></div>
+        <div class="snowflake snowflake-3" style="display: none;"></div>
+        <div class="snowflake snowflake-4" style="display: none;"></div>
+        <div class="snowflake snowflake-5" style="display: none;"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- App Header -->
+        <div class="app-header">
+            <h1 class="app-title">🌤️ Weather</h1>
+            <div class="header-controls">
+                <button class="theme-toggle" aria-label="Toggle dark/light theme">
+                    🌙 Dark Mode
+                </button>
+                <div class="unit-toggle" role="group" aria-label="Temperature unit">
+                    <button class="unit-btn active" data-unit="celsius">°C</button>
+                    <button class="unit-btn" data-unit="fahrenheit">°F</button>
+                </div>
+                <button class="location-btn" aria-label="Use current location">
+                    📍 My Location
+                </button>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-bar">
+                <input type="text" placeholder="Search city or country..." aria-label="Search for weather by location">
+                <button aria-label="Search">🔍</button>
+            </div>
+            <div class="search-history" id="searchHistory">
+                <span class="sr-only">Recent searches:</span>
+                <!-- Search history items will be added dynamically -->
+            </div>
+        </div>
+
+        <!-- Loading State (hidden by default) -->
+        <div class="loading" id="loadingState" style="display: none;">
+            <div class="spinner" aria-label="Loading weather data"></div>
+        </div>
+
+        <!-- Error State (hidden by default) -->
+        <div class="error" id="errorState" style="display: none;">
+            <h3>⚠️ Weather data unavailable</h3>
+            <p>Please check your connection and try again.</p>
+        </div>
+
+        <!-- Current Weather Section -->
+        <div class="current-weather" id="currentWeather">
+            <div class="location">London, UK</div>
+            <div class="date">Saturday, 17 May 2025</div>
+            
+            <div class="weather-display">
+                <div class="temperature" id="temperature">21°C</div>
+                <div class="weather-icon" id="weatherIcon" role="img" aria-label="Sunny weather">☀️</div>
+            </div>
+            
+            <div class="weather-info">
+                <div class="weather-description" id="weatherDescription">Sunny</div>
+                
+                <div class="weather-details">
+                    <div class="detail">
+                        <div class="detail-icon" aria-hidden="true">💧</div>
+                        <div id="humidity">Humidity: 45%</div>
+                    </div>
+                    
+                    <div class="detail">
+                        <div class="detail-icon" aria-hidden="true">💨</div>
+                        <div id="windSpeed">Wind: 6 km/h</div>
+                    </div>
+                    
+                    <div class="detail">
+                        <div class="detail-icon" aria-hidden="true">🌡️</div>
+                        <div id="feelsLike">Feels like: 23°C</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forecast Section -->
+        <div class="forecast-section">
+            <h2 class="forecast-title">5-Day Forecast</h2>
+            
+            <div class="forecast-container" id="forecastContainer">
+                <!-- Forecast cards will be generated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
